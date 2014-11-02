@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -125,23 +126,31 @@ public class Controller {
 
 		RemovableDrive drive = model.getRemovableDrives().get(getIndexOfButton(event));
 		File path = drive.getDriveLetter();
+		// TODO Dialog auf Deutsch umstellen
 		Action response = Dialogs.create().title("Sollen wirklich alle Daten überschrieben werden?")
 				.message("Achtung! Es werden alle Daten auf dem Laufwerk \"" + drive.getName() + "\" überschrieben!")
 				.showConfirm();
 		System.out.println(response);
 		if (response.toString().equals("YES")) {
-			// TODO in eigenem Thread kopieren - blockiert die Oberfläche
-			try {
-				if (RemovableDrive.Type.isKnownType(drive)) {
-					FileUtils.cleanDirectory(path);
-				}
-				FileUtils.copyDirectoryToDirectory(model.getSelectedSourceDir(), path);
-			} catch (IOException e) {
-				LOG.warn("Fehler beim Schreiben auf " + drive.getName(), e);
-			}
+			// TODO Rückmeldung des Fortschritts / Fertigstellung an die GUI
+			Task<Void> copyTask = new Task<Void>() {
 
+				@Override
+				protected Void call() throws Exception {
+					try {
+						System.out.println("copying to " + path);
+						if (RemovableDrive.Type.isKnownType(drive)) {
+							FileUtils.cleanDirectory(path);
+						}
+						FileUtils.copyDirectoryToDirectory(model.getSelectedSourceDir(), path);
+					} catch (IOException e) {
+						LOG.warn("Fehler beim Schreiben auf " + drive.getName(), e);
+					}
+					return null;
+				}
+			};
+			new Thread(copyTask).start();
 		}
-		System.out.println("copying to " + path);
 	}
 	
 	private void setSync(ActionEvent event) {
