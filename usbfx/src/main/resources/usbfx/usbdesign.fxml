@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<SplitPane dividerPositions="0.45484949832775917" maxHeight="-Infinity"
+	maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="400.0"
+	prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+	fx:controller="usbfx.UsbFxController">
+	<items>
+		<GridPane hgap="10" vgap="10" fx:id="sourcePane">
+			<children>
+				<Label GridPane.columnIndex="0" GridPane.rowIndex="0"
+					GridPane.columnSpan="20" text="Quellverzeichnis:" />
+				<TextField GridPane.columnIndex="0" GridPane.rowIndex="1"
+					GridPane.columnSpan="20" fx:id="sourceText" />
+				<Button GridPane.columnIndex="20" GridPane.rowIndex="1"
+					mnemonicParsing="false" onAction="#chooseSourcePath">
+					<graphic>
+						<ImageView pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@Dossier-jaune-icon_CrystalIntense.png" />
+							</image>
+						</ImageView>
+					</graphic>
+				</Button>
+			</children>
+		</GridPane>
+		<GridPane hgap="10" vgap="10" fx:id="targetPane">
+			<!--<children>
+				<ImageView GridPane.columnIndex="0" GridPane.rowIndex="0"
+					pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@PenDrive-USB-3.0-Kingston-DT100-G3-16GB-1-icon.png" />
+					</image>
+				</ImageView>
+				<Label GridPane.columnIndex="1" GridPane.rowIndex="0"
+					GridPane.columnSpan="2" text="d: Wechseldatenträger" />
+				<ImageView GridPane.columnIndex="3" GridPane.rowIndex="0"
+					pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image url="@check-icon%20(Web%202%20Icons).png" />
+					</image>
+				</ImageView>
+
+				<ImageView GridPane.columnIndex="0" GridPane.rowIndex="1"
+					pickOnBounds="true" preserveRatio="true">
+					<image>
+						<Image
+							url="@iPod-Shuffle-icon%20(3D%20Cartoon%20Vol.%202%20Icons,%20cc-nc-nd).png" />
+					</image>
+				</ImageView>
+				<Label GridPane.columnIndex="1" GridPane.rowIndex="1"
+					GridPane.columnSpan="2" text="e: Wechseldatenträger" />
+				<ProgressIndicator GridPane.columnIndex="3"
+					GridPane.rowIndex="1" progress="0.38" />
+			</children>-->
+		</GridPane>
+	</items>
+</SplitPane>

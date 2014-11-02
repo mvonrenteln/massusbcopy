@@ -1,0 +1,15 @@
+* Einige Sticks werden von Windows nicht als "Wechellaufwerk", sondern als "Lokaler Datenträger" angegeben! Prüfen,
+  wieso und wie häufig das vorkommt!
+
+* editieren des Quell-Feldes wird nicht beachtet, da die Änderung nicht ins Modell geschrieben wird.
+* Validierung dieser Änderungen
+
+* Bilder aus dem Model entfernen. Gehört in den View
+* Bilder über CSS den Buttons zuweisen
+
+* Heartbeat: Model und View entkoppeln: Update Geräte in Extra-Thread, schreibt in Model, Trigger in View in FX-Thread
+
+
+
+
+* Irgendwann: Auswerfen-Button
