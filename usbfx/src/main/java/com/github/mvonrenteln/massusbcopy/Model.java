@@ -1,4 +1,4 @@
-package usbfx;
+package com.github.mvonrenteln.massusbcopy;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UsbFxModel {
+public class Model {
 
 	private static final String REMOVABLE_DISK = "Wechseldatenträger";
 
-	private static final Logger LOG = LoggerFactory.getLogger(UsbFxModel.class);
+	private static final Logger LOG = LoggerFactory.getLogger(Model.class);
 
-	private UsbFxController controller;
+	private Controller controller;
 
 	FileSystemView fsv = FileSystemView.getFileSystemView();
 
@@ -29,7 +29,7 @@ public class UsbFxModel {
 
 	boolean isRemovableDrivesChanged = true;
 
-	public UsbFxModel(UsbFxController controller) {
+	public Model(Controller controller) {
 		this.controller = controller;
 		setSelectedSourceDir(defaultSourceDir);
 	}

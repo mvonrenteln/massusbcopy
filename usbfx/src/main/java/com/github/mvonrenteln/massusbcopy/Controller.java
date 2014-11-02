@@ -1,4 +1,4 @@
-package usbfx;
+package com.github.mvonrenteln.massusbcopy;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,13 +24,13 @@ import org.controlsfx.dialog.Dialogs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UsbFxController {
+public class Controller {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UsbFxController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(Controller.class);
 
-	private UsbFxModel model;
+	private Model model;
 
-	private static UsbFxController instance;
+	private static Controller instance;
 
 	@FXML
 	Parent root;
@@ -47,14 +47,14 @@ public class UsbFxController {
 	@FXML
 	public void initialize() {
 		instance = this;
-		model = new UsbFxModel(this);
+		model = new Model(this);
 		// TODO später über CSS setzen
 		sourcePane.setPadding(new Insets(10));
 		targetPane.setPadding(new Insets(10));
 		updateTargets();
 	}
 
-	public static UsbFxController getInstance() {
+	public static Controller getInstance() {
 		return instance;
 	}
 

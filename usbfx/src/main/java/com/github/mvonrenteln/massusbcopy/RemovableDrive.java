@@ -1,4 +1,4 @@
-package usbfx;
+package com.github.mvonrenteln.massusbcopy;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package usbfx;
+package com.github.mvonrenteln.massusbcopy;
 
 import java.io.File;
 import java.util.concurrent.Executors;
@@ -20,7 +20,7 @@ import org.apache.commons.io.monitor.FileAlterationListener;
 import org.apache.commons.io.monitor.FileAlterationObserver;
 
 
-public class UsbFxMain extends Application {
+public class MassUsbCopyMain extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
@@ -45,7 +45,7 @@ public class UsbFxMain extends Application {
 
 		    @Override
 		    public void handle(ActionEvent event) {
-		    	UsbFxController.getInstance().updateTargets();
+		    	Controller.getInstance().updateTargets();
 		    }
 		}));
 		targetUpdater.setCycleCount(Timeline.INDEFINITE);
