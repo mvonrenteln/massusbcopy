@@ -75,7 +75,7 @@ public class Controller {
 	}
 
 	/**
-	 * Updated das Source Textfeld. Wird bei Modell-Änderumngen aufgerufen.
+	 * Updated das Source Textfeld. Wird bei Modell-Änderungen aufgerufen.
 	 */
 	public void updateSelectedSourceDir(File sourceDir) {
 		sourceText.setText(sourceDir.getAbsolutePath());

@@ -1,23 +1,11 @@
 package com.github.mvonrenteln.massusbcopy;
 
-import java.io.File;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import org.apache.commons.io.monitor.FileAlterationListener;
-import org.apache.commons.io.monitor.FileAlterationObserver;
 
 
 public class MassUsbCopyMain extends Application {
@@ -32,7 +20,7 @@ public class MassUsbCopyMain extends Application {
 
 		Scene scene = new Scene(root, 1024, 600);
 
-		stage.setTitle("FXML Welcome");
+		stage.setTitle("Mass USB Copier");
 		stage.setScene(scene);
 		stage.show();
 		
@@ -41,15 +29,18 @@ public class MassUsbCopyMain extends Application {
 	}
 
 	private void heartbeatSticks() {
-		Timeline targetUpdater = new Timeline(new KeyFrame(Duration.seconds(1),	new EventHandler<ActionEvent>() {
-
-		    @Override
-		    public void handle(ActionEvent event) {
-		    	Controller.getInstance().updateTargets();
-		    }
-		}));
-		targetUpdater.setCycleCount(Timeline.INDEFINITE);
-		targetUpdater.play();
+		RemovableDriveService removableDriveService = new RemovableDriveService();
+		removableDriveService.setPeriod(Duration.seconds(3));
+		removableDriveService.start();
+//		Timeline targetUpdater = new Timeline(new KeyFrame(Duration.seconds(1),	new EventHandler<ActionEvent>() {
+//
+//		    @Override
+//		    public void handle(ActionEvent event) {
+//		    	Controller.getInstance().updateTargets();
+//		    }
+//		}));
+//		targetUpdater.setCycleCount(Timeline.INDEFINITE);
+//		targetUpdater.play();
 	}
 	
 //	private void heartbeatFilesystem() {
